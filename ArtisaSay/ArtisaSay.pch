@@ -1,0 +1,20 @@
+
+//
+//  ArtisaSay.pch
+//  ArtisaSay
+//
+//  Created by Apple on 16/5/3.
+//  Copyright © 2016年 YiJiangTianCheng. All rights reserved.
+//
+
+#ifndef ArtisaSay_pch
+#define ArtisaSay_pch
+#import "Masonry.h"
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+// 屏幕高度
+#define SCREEN_HEIGHT         [[UIScreen mainScreen] bounds].size.height
+// 屏幕宽度
+#define SCREEN_WIDTH          [[UIScreen mainScreen] bounds].size.width
+
+#endif /* ArtisaSay_pch */

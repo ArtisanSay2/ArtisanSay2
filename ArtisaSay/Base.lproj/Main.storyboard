@@ -54,7 +54,7 @@
             </objects>
             <point key="canvasLocation" x="-913" y="523"/>
         </scene>
-        <!--发消息-->
+        <!--发布消息-->
         <scene sceneID="esd-rc-Yor">
             <objects>
                 <viewController id="zvj-uh-HB3" customClass="WJSendViewController" sceneMemberID="viewController">
@@ -65,50 +65,23 @@
                     <view key="view" contentMode="scaleToFill" id="cVa-aL-9ni">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="szT-0l-rBA">
-                                <rect key="frame" x="0.0" y="64" width="375" height="200"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="mtL-Ro-KyY"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="mtL-Ro-KyY"/>
-                                    </mask>
-                                </variation>
-                            </textView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ev-0v-FmX">
-                                <rect key="frame" x="20" y="283" width="44" height="41"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="szT-0l-rBA" secondAttribute="trailing" id="8pZ-de-GrV"/>
-                            <constraint firstItem="szT-0l-rBA" firstAttribute="height" secondItem="cVa-aL-9ni" secondAttribute="height" multiplier="0.3" id="CWY-Vv-MSJ"/>
-                            <constraint firstItem="szT-0l-rBA" firstAttribute="top" secondItem="CqU-7Y-RCQ" secondAttribute="bottom" id="fdg-Gh-abo"/>
-                            <constraint firstItem="szT-0l-rBA" firstAttribute="leading" secondItem="cVa-aL-9ni" secondAttribute="leading" id="wGq-9t-s2T"/>
-                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="发消息" id="tPs-Hj-xsY">
+                    <navigationItem key="navigationItem" title="发布消息" id="tPs-Hj-xsY">
                         <barButtonItem key="leftBarButtonItem" title="取消" id="z5S-n6-Kkc">
+                            <color key="tintColor" red="0.51764705882352946" green="0.51764705882352946" blue="0.51764705882352946" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="dismissBtn:" destination="zvj-uh-HB3" id="e08-md-lsS"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="发布" id="yPw-Y5-O2C">
+                            <color key="tintColor" red="0.011764705882352941" green="0.6705882352941176" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="sendBtn:" destination="zvj-uh-HB3" id="Tv7-tB-Uh9"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <outlet property="textView" destination="szT-0l-rBA" id="QFd-tf-Wbm"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Q8-R8-E3V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

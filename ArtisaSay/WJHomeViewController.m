@@ -14,11 +14,8 @@
 #import "WJSendViewController.h"
 #import "JHCustomMenu.h"
 
-@interface WJHomeViewController ()<AVCaptureMetadataOutputObjectsDelegate, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface WJHomeViewController ()<AVCaptureMetadataOutputObjectsDelegate, UITableViewDataSource, UITableViewDelegate, JHCustomMenuDelegate>
 
-//@property (nonatomic, assign) BOOL orSmall;
-//@property (nonatomic, strong) UIView *sweepView;
-//@property (nonatomic, strong) UIButton *btn;
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 @property (nonatomic, strong) UIButton *sendMessageBtn;
 @property (nonatomic, strong) JHCustomMenu *jhmenu;
@@ -42,6 +39,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 2;
 }
+#pragma - mark  执行tableView协议方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 1;
 }
@@ -61,11 +59,12 @@
     WJPersonViewController *personViewController = [[WJPersonViewController alloc] init];
     [self presentViewController:personViewController animated:YES completion:nil];
 }
+#pragma - mark 自定义封装tableView
 - (IBAction)sweepBtn:(id)sender {
     __weak typeof(self) weakSelf = self;
     if (!self.jhmenu) {
         self.jhmenu = [[JHCustomMenu alloc] initWithDataArr:@[ @"发消息",@"发视频",@"扫一扫"] origin:CGPointMake(_addBtn.center.x , 55) width:100 rowHeight:44];
-        //_jhmenu.delegate = self;
+        _jhmenu.delegate = self;
         _jhmenu.tag = 1;
         _jhmenu.dismiss = ^() {
             weakSelf.jhmenu = nil;
@@ -78,17 +77,20 @@
         }];
     }
 }
-- (void)sendMessage:(UIButton *)btn{
-    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UINavigationController *sendViewController = [storyBoard instantiateViewControllerWithIdentifier:@"sendMessageNav"];
-    [self presentViewController:sendViewController animated:YES completion:nil];
+- (void)jhCustomMenu:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 0) {
+        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UINavigationController *sendViewController = [storyBoard instantiateViewControllerWithIdentifier:@"sendMessageNav"];
+        [self presentViewController:sendViewController animated:YES completion:nil];
+    }
+    if (indexPath.row == 1) {
+        NSLog(@"发视频");
+    }
+    if (indexPath.row == 2) {
+        NSLog(@"扫一扫");
+    }
 }
-- (void)sendPhoto:(UIButton *)btn{
-    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
-    imagePickerController.delegate = self;
-    imagePickerController.allowsEditing = YES;
-    [self presentViewController:imagePickerController animated:YES completion:nil];
-}
+
 - (IBAction)clearImgBtn:(id)sender {
     [_imgView removeFromSuperview];
     [sender removeFromSuperview];

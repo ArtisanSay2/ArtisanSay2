@@ -10,7 +10,6 @@
 
 @interface WJSendViewController : UIViewController
 - (IBAction)dismissBtn:(id)sender;
-@property (weak, nonatomic) IBOutlet UITextView *textView;
 - (IBAction)sendBtn:(id)sender;
 
 @end
